@@ -6,6 +6,8 @@ plugins {
 
 ext {
     springBootVersion = "2.2.2.RELEASE"
+    jJwtVersion = "0.9.1"
+    lombokVersion = "1.18.10"
 }
 
 group = "com.wanari"
@@ -17,8 +19,13 @@ repositories {
 }
 
 dependencies {
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
     implementation "org.springframework.boot:spring-boot-starter:${springBootVersion}"
     implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+    implementation "io.jsonwebtoken:jjwt:${jJwtVersion}"
+    implementation "org.projectlombok:lombok:${lombokVersion}"
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude group: "org.junit.vintage", module: "junit-vintage-engine"
